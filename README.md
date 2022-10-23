@@ -2,7 +2,7 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
-* Navn Navnesen, S123456, s123456@oslomet.no
+* Nicolai Wahl, S362072, s362072@oslomet.no
 
 
 # Oppgavebeskrivelse

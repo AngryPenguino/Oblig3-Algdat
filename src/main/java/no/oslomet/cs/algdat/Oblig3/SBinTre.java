@@ -12,6 +12,16 @@ public class SBinTre<T> {
         SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
         for (int verdi : a) {tre.leggInn(verdi); }
         System.out.println(tre.antall());  // Utskrift: 10
+
+        Integer[] b = {4,7,2,9,4,10,8,7,4,6};
+        SBinTre<Integer> tree = new SBinTre<>(Comparator.naturalOrder());
+        for (int verdi : b) { tre.leggInn(verdi); }
+
+        System.out.println(tree.antall());            // Utskrift: 10
+        System.out.println(tree.antall(5));     // Utskrift: 0
+        System.out.println(tree.antall(4));     // Utskrift: 3
+        System.out.println(tree.antall(7));     // Utskrift: 2
+        System.out.println(tree.antall(10));    // Utskrift: 1
     }
     private static final class Node<T>   // en indre nodeklasse
     {
@@ -121,7 +131,27 @@ public class SBinTre<T> {
 
     //Oppgave 2
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        if(verdi == null){
+            return 0;
+        }
+
+        Node<T> p = rot;
+        int antallForekomster = 0;
+
+        while(p != null){
+            int cmp  = comp.compare(verdi, p.verdi);
+            if(cmp < 0){
+                p = p.venstre;
+            }
+            else{
+                if(cmp == 0){
+                    antallForekomster++;
+                    p = p.høyre;
+                }
+            }
+        }
+        return antallForekomster;
     }
 
     public boolean fjern(T verdi) {

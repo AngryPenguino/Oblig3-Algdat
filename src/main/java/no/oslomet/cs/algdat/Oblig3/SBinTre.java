@@ -139,20 +139,23 @@ public class SBinTre<T> {
         Node<T> p = rot;
         int antallForekomster = 0;
 
-        while(p != null){
-            int cmp  = comp.compare(verdi, p.verdi);
-            if(cmp < 0){
+        while (p != null) {
+            int cmp = comp.compare(verdi, p.verdi);
+            if (cmp < 0){
                 p = p.venstre;
             }
-            else{
-                if(cmp == 0){
+
+            else {
+                if (cmp == 0){
                     antallForekomster++;
-                    p = p.høyre;
                 }
+                p = p.høyre;
             }
         }
+
         return antallForekomster;
     }
+
 
     public boolean fjern(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");

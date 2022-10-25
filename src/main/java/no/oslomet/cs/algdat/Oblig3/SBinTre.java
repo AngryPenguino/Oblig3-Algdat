@@ -195,7 +195,9 @@ public class SBinTre<T> {
     //Oppgave 6
     public boolean fjern(T verdi) { //Bruker kode fra kompendiet programkode 5.2.8d
 
-        if (verdi == null) return false;  // treet har ingen nullverdier
+        if (verdi == null){
+            return false;  // treet har ingen nullverdier
+        }
 
         Node<T> p = rot, q = null;   // q skal være forelder til p
 

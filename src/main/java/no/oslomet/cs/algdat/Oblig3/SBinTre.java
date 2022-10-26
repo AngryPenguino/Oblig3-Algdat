@@ -253,12 +253,20 @@ public class SBinTre<T> {
     }
 
     public int fjernAlle(T verdi) {
-        return 0;
+
+        int antallFjern = 0;
+        while(fjern(verdi)){
+            antallFjern++;
+        }
+
+        return antallFjern;
     }
 
 
 
     public void nullstill() {
+
+
 
     }
 

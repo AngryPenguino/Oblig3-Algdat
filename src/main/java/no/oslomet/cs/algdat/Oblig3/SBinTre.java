@@ -22,6 +22,18 @@ public class SBinTre<T> {
         System.out.println(tree.antall(4));     // Utskrift: 3
         System.out.println(tree.antall(7));     // Utskrift: 2
         System.out.println(tree.antall(10));    // Utskrift: 1
+
+        int[] c = {4,7,2,9,4,10,8,7,4,6,1};
+        SBinTre<Integer> treee = new SBinTre<>(Comparator.naturalOrder());
+        for (int verdi : a) treee.leggInn(verdi);
+
+        System.out.println(treee.fjernAlle(4));  // 3
+        treee.fjernAlle(7); treee.fjern(8);
+
+        System.out.println(treee.antall());  // 5
+
+        //System.out.println(treee + " " + treee.omvendtString());
+        // [1, 2, 6, 9, 10] [10, 9, 6, 2, 1]
     }
     private static final class Node<T>   // en indre nodeklasse
     {
@@ -266,7 +278,11 @@ public class SBinTre<T> {
 
     public void nullstill() {
 
-
+        if(!tom()){
+            nullstill();
+        }
+        antall = 0;
+        endringer++;
 
     }
 

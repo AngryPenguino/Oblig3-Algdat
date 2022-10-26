@@ -1,10 +1,7 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class SBinTre<T> {
     public static void main(String [] args){
@@ -170,8 +167,13 @@ public class SBinTre<T> {
 
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        //Prøver eksempel fra boken, vet ikke om det er relevant da :)
-
+        //jjjaaa
+        if(p == null) throw new NoSuchElementException("aaaaaaaaaaaaaaaaaa");
+        if( p != null){
+            nestePostorden(p.venstre);
+            nestePostorden(p.høyre);
+            //😩✊
+        }
 
         return p;
     }
@@ -281,6 +283,7 @@ public class SBinTre<T> {
         if(!tom()){
             nullstill();
         }
+        rot = null;
         antall = 0;
         endringer++;
 

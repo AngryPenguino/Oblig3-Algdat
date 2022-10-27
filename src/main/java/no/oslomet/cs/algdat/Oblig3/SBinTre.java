@@ -5,21 +5,6 @@ import java.util.*;
 
 public class SBinTre<T> {
     public static void main(String [] args){
-        Integer[] a = {4,7,2,9,5,10,8,1,3,6};
-        SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : a) {tre.leggInn(verdi); }
-        System.out.println(tre.antall());  // Utskrift: 10
-
-        Integer[] b = {4,7,2,9,4,10,8,7,4,6};
-        SBinTre<Integer> tree = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : b) { tre.leggInn(verdi); }
-
-        System.out.println(tree.antall());            // Utskrift: 10
-        System.out.println(tree.antall(5));     // Utskrift: 0
-        System.out.println(tree.antall(4));     // Utskrift: 3
-        System.out.println(tree.antall(7));     // Utskrift: 2
-        System.out.println(tree.antall(10));    // Utskrift: 1
-
         int[] c = {4,7,2,9,4,10,8,7,4,6,1};
         SBinTre<Integer> treee = new SBinTre<>(Comparator.naturalOrder());
         for (int verdi : a) treee.leggInn(verdi);
@@ -297,8 +282,11 @@ public class SBinTre<T> {
             nullstill(p.venstre = null);
             p.venstre = null;
         }
-
-
+        if(p.høyre != null){
+            nullstill(p.høyre);
+            p.høyre = null;
+        }
+        p.verdi = null;
     }
 
 

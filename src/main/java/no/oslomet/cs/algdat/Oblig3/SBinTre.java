@@ -228,7 +228,9 @@ public class SBinTre<T> {
                 break;                                  // den søkte verdien ligger i p
             }
         }
-        if (p == null) return false;                    // finner ikke verdi
+        if (p == null){
+            return false;                    // finner ikke verdi
+        }
 
         if (p.venstre == null || p.høyre == null){// Tilfelle 1) og 2)
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
@@ -277,15 +279,25 @@ public class SBinTre<T> {
     }
 
 
-
+    //Kompendiet kap 5.2.8 om fjerning
     public void nullstill() {
 
         if(!tom()){
-            nullstill();
+            nullstill(rot);
         }
         rot = null;
         antall = 0;
         endringer++;
+
+    }
+
+    private void nullstill(Node<T> p){
+
+        if(p.venstre != null){
+            nullstill(p.venstre = null);
+            p.venstre = null;
+        }
+
 
     }
 

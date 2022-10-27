@@ -169,8 +169,11 @@ public class SBinTre<T> {
 
 
 
+    //Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
-
+        if(rot != null){
+            postordenRecursive(rot,oppgave);
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {

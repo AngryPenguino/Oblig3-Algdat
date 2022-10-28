@@ -168,17 +168,21 @@ public class SBinTre<T> {
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
 
-        while(true){
-            if(p.forelder == null){
-                p = p;
-            }
-            else if(p.høyre != null){
-                p = p.høyre;
+        if(p.forelder == null){
+            p = null;
+        }
+        else if(p == p.forelder.høyre){
+            p = p.forelder;
+        }
+        else if(p == p.forelder.venstre){
+            if(p.forelder.høyre == null){
+                p = p.forelder;
             }
             else{
-                return p;
+                p = førstePostorden(p.forelder.høyre);
             }
         }
+        return p;
     }
 
 

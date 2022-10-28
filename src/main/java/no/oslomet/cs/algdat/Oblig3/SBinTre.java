@@ -7,7 +7,7 @@ public class SBinTre<T> {
     public static void main(String [] args){
         int[] c = {4,7,2,9,4,10,8,7,4,6,1};
         SBinTre<Integer> treee = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : a) treee.leggInn(verdi);
+        for (int verdi : c) treee.leggInn(verdi);
 
         System.out.println(treee.fjernAlle(4));  // 3
         treee.fjernAlle(7); treee.fjern(8);
@@ -152,19 +152,33 @@ public class SBinTre<T> {
 
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        //jjjaaa
-        if(p == null) throw new NoSuchElementException("aaaaaaaaaaaaaaaaaa");
-        if( p != null){
-            nestePostorden(p.venstre);
-            nestePostorden(p.høyre);
-            //😩✊
-        }
 
-        return p;
+        while(true){
+            if(p.venstre != null){
+                p = p.venstre;
+            }
+            else if(p.høyre != null){
+                p = p.høyre;
+            }
+            else{
+                return p;
+            }
+        }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        while(true){
+            if(p.forelder == null){
+                p = p;
+            }
+            else if(p.høyre != null){
+                p = p.høyre;
+            }
+            else{
+                return p;
+            }
+        }
     }
 
 

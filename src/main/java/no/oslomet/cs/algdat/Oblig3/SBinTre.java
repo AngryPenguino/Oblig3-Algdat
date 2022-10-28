@@ -133,53 +133,53 @@ public class SBinTre<T> {
         Node<T> p = rot;
         int antallForekomster = 0;
 
-        while (p != null) {
-            int cmp = comp.compare(verdi, p.verdi);
-            if (cmp < 0){
-                p = p.venstre;
+        while (p != null) {                             //Mens noden ikke er null
+            int cmp = comp.compare(verdi, p.verdi);     //Sammenligner verdien inn og verdien til noden
+            if (cmp < 0){                               //Ulik noden
+                p = p.venstre;                          //Går videre i treet
             }
 
             else {
-                if (cmp == 0){
-                    antallForekomster++;
+                if (cmp == 0){                          //Lik noden
+                    antallForekomster++;                // + på antall
                 }
-                p = p.høyre;
+                p = p.høyre;                            //Går videre i treet
             }
         }
 
-        return antallForekomster;
+        return antallForekomster;                       //Returnerer antall
     }
 
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
 
         while(true){
-            if(p.venstre != null){
-                p = p.venstre;
+            if(p.venstre != null){                          //Om venstre noden ikke er null
+                p = p.venstre;                              //Så er venstrenoden først
             }
-            else if(p.høyre != null){
-                p = p.høyre;
+            else if(p.høyre != null){                       //Eller om høyre noden ikke er null
+                p = p.høyre;                                //Så er høyre noden først
             }
             else{
-                return p;
+                return p;                                   //Ellers returneres p
             }
         }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
 
-        if(p.forelder == null){
-            p = null;
+        if(p.forelder == null){                             //Om forelder noden er null
+            p = null;                                       //Så er noden null
         }
-        else if(p == p.forelder.høyre){
-            p = p.forelder;
+        else if(p == p.forelder.høyre){                     //Om p er høyre node
+            p = p.forelder;                                 //Så blir neste postorden forelder noden
         }
-        else if(p == p.forelder.venstre){
-            if(p.forelder.høyre == null){
-                p = p.forelder;
+        else if(p == p.forelder.venstre){                   //Om p er venstre node
+            if(p.forelder.høyre == null){                   //Om høyre noden er null
+                p = p.forelder;                             //Så er neste postorden forelder noden
             }
             else{
-                p = førstePostorden(p.forelder.høyre);
+                p = førstePostorden(p.forelder.høyre);      //Ellers blir førstPostorden funksjon kjørt.
             }
         }
         return p;
@@ -190,20 +190,20 @@ public class SBinTre<T> {
     //Oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
         if(rot != null){
-            postordenRecursive(rot,oppgave);
+            postordenRecursive(rot,oppgave);            //Om roten ikke er null så kjøres postordenrecursive
         }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
-        postordenRecursive(rot, oppgave);
+        postordenRecursive(rot, oppgave);               //Kaller på privare metoden
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        if (p.venstre != null){
-            postordenRecursive(p.venstre,oppgave);
+        if (p.venstre != null){                         //Om venstre node ikke er null
+            postordenRecursive(p.venstre,oppgave);      //Kaller på seg selv for å gå gjennom treet
         }
-        if (p.høyre != null){
-            postordenRecursive(p.høyre,oppgave);
+        if (p.høyre != null){                           //Om høyre node ikke er null
+            postordenRecursive(p.høyre,oppgave);        //Kaller på seg selv for å gå gjennom treet
         }
         oppgave.utførOppgave(p.verdi);
     }

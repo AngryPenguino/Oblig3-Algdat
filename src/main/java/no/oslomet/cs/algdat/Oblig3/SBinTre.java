@@ -4,19 +4,7 @@ package no.oslomet.cs.algdat.Oblig3;
 import java.util.*;
 
 public class SBinTre<T> {
-    public static void main(String [] args){
-        int[] c = {4,7,2,9,4,10,8,7,4,6,1};
-        SBinTre<Integer> treee = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : c) treee.leggInn(verdi);
 
-        System.out.println(treee.fjernAlle(4));  // 3
-        treee.fjernAlle(7); treee.fjern(8);
-
-        System.out.println(treee.antall());  // 5
-
-        //System.out.println(treee + " " + treee.omvendtString());
-        // [1, 2, 6, 9, 10] [10, 9, 6, 2, 1]
-    }
     private static final class Node<T>   // en indre nodeklasse
     {
         private T verdi;                   // nodens verdi
@@ -195,7 +183,7 @@ public class SBinTre<T> {
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
-        postordenRecursive(rot, oppgave);               //Kaller på privare metoden
+        postordenRecursive(rot, oppgave);               //Kaller på private metoden
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
@@ -205,7 +193,7 @@ public class SBinTre<T> {
         if (p.høyre != null){                           //Om høyre node ikke er null
             postordenRecursive(p.høyre,oppgave);        //Kaller på seg selv for å gå gjennom treet
         }
-        oppgave.utførOppgave(p.verdi);
+        oppgave.utførOppgave(p.verdi);                  //Kaller på utførOppgave som f.eks. printer ut treet
     }
 
     public ArrayList<T> serialize() {

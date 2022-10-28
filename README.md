@@ -9,6 +9,8 @@ Oppgaven er levert av følgende student:
 Hadde lyst til å gjøre alle oppgavene men ble syk på fredagen :(
 Klarte i det minste å gjøre ferdig fire oppgaver
 
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 I oppgave 1 så gikk jeg frem ved å bruke koden fra kompendiets programkode 5.2.3a. Utifra det så skulle jeg gjøre at forelder får riktig verdi
 og det gjorde jeg ved å legge til variablen q, som er forelderen noden til p, inn i delen der vi lager en ny node.
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,6 +35,6 @@ Dersom roten ikke er null så blir public postordenRecursive kalt på som igjen 
 Har begynt med oppgave 6, laget fjern, fjern alle og nullstill funksjonene men har gjort noe feil slik at testen blir ignorert.
 Har ikke begynt med oppgave 5 :(
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 
